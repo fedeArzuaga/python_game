@@ -4,6 +4,7 @@ import os
 
 my_os = platform.system()
 
+# Enemie class - This enemie will have a value which will be used to compare against the main character value
 class Enemie:
     def __init__(self, input_value):
         self.value = input_value
@@ -11,6 +12,7 @@ class Enemie:
     def __repr__(self):
         return "\nThis enemie has the value of: {}".format(self.value)
 
+# EnemiesTower class - this tower will collect a specific amount of enemies inside it.
 class EnemiesTower:
     def __init__(self, input_enemies = []):
         self.enemies = input_enemies
@@ -27,6 +29,7 @@ class EnemiesTower:
         deleted_enemie = self.enemies.pop( self.enemies.index(enemie) )
         return "\nThe enemie {} was deleted. Good one!".format(deleted_enemie)
 
+# MainCharacter class - This is the user's main character. The user will be able to give it a name, and this will start with an initial value of 5.
 class MainCharacter:
     def __init__(self, input_name = "Unknown Player", input_value = 10):
         self.name = input_name
@@ -35,6 +38,7 @@ class MainCharacter:
     def __repr__(self):
         return "\nThis is your main character named {} and its goal is to destroy the whole tower of enemies. Its initial value is {}".format(self.name, self.value)
 
+    # Method to compare the enemie selected with your main character.
     def destroy_an_enemie(self, enemies_tower, enemie):
         if enemie in enemies_tower.enemies:
             if ( self.value > enemie ):
