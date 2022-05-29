@@ -60,13 +60,14 @@ print(new_enemies_tower)
 
 def clear_the_terminal( os_type ):
     if os_type == "Windows":
-        os.system("CLS")
+        os.system("cls")
     elif os_type == "Linux":
-        os.system("Clear")
+        os.system("clear")
 
 def render_characters( main_character, enemies_tower ):
     print("\nCharacter value | Enemies")
     index = 0
+
     for enemie in enemies_tower.enemies:
         if index < (len(enemies_tower.enemies) - 1):
             print("  {}".format(enemie))
@@ -78,6 +79,7 @@ def start_game( main_character, enemies_tower ):
     print("\nLet's start the game!")
     render_characters( main_character, enemies_tower )
     choose_an_enemie = input("\nSelect an enemie to fight with: ")
+
     while ( len(enemies_tower.enemies) > 1 ):
         clear_the_terminal( my_os )
         was_enemie_destroyed = main_character.destroy_an_enemie(enemies_tower, int(choose_an_enemie))
@@ -88,6 +90,7 @@ def start_game( main_character, enemies_tower ):
         else:
             print("Oh no! You have selected a more powered enemie than you, your character has been destroyed! No worries, you can try again by running this python program when you're ready.")
             return
+
     print("\nCongrats! Your character {} has destroyed all of its enemies. You're a real fighter!".format(main_character.name))
     
 start_game( new_main_character, new_enemies_tower )
